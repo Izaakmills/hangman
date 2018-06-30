@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Hangman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+
+    <!-- Javascript -->
+    <script src="./assets/javascript/game.js"></script>
+
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- header with name of game and some theme images / info -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Welcome to,
+                    <br>hangman!</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary btn-startGame">Start Game</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="col-sm-12">
+            <div>
+                <h3>Heres your word</h3>
+                <p class="word-fillout"></p>
+                <!-- Underlines go here for word fillout -->
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <h3>You have <div class="guesses"></div> remaining</h3>
+
+
+        </div>
+    </div>
+
+    <!-- first section with instructions on how to play -->
+
+    <!-- Second section where game info is kept such as
+            underscores indicating how long the word is and number of guesses/ wins -->
+    <script>
+        $(document).ready(function () {
+
+            var words = ["albedo", "Alpha Centauri", "apastron", "aperature", "aphelion", "apogee", "asterism", "asteroid", "astronaut", "astronomer"
+                , "astronomical unit", "astronomy", "axial tilt", "azimuth"]
+
+            // Game start button calls generate word function
+            $(".btn-startGame").on("click", function () {
+                $("p.word-fillout").empty()
+                var word = words[Math.floor(Math.random()*words.length)];
+                // loop through and append a underscore for each letter
+                    for (i = 0; i < word.length; i++){
+                        $(".word-fillout").append("_").append(" ");
+                        console.log(i);
+                    };
+            });
+                // var under_ = $("<div>");
+                // under_.addClass("letter");
+                // under_.text("_");
+                // $(".word-fillout").append(under_);
+
+                // _generateWord();
+
+            // function _generateWord() {
+            //     var word = words[i];
+            //         console.log(word);
+
+        });
+
+    </script>
+</body>
+
+</html>

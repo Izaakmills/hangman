@@ -1,0 +1,18 @@
+h1{
+    text-align: center;
+    color:black;
+    font-family: 'Shrikhand', cursive;
+    font-weight: 800;
+}
+body{
+    text-align:center;
+} 
+.letter{
+    color:black;
+}
+.word-fillout{
+    font-size: 75px;
+}
+
+
+
