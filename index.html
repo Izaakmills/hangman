@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
     <meta charset="utf-8" />
     <title>Hangman</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
 
     <!-- Javascript -->
-    <script src="./assets/javascript/game.js"></script>
+    <!-- <script src="./assets/javascript/game.js"></script> -->
 
     <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -25,6 +26,7 @@
     <!-- header with name of game and some theme images / info -->
     <div class="container">
         <div class="row">
+            <!-- Header -->
             <div class="col-sm-12">
                 <h1>Welcome to,
                     <br>hangman!</h1>
@@ -33,16 +35,18 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="text-center">
-                    <button type="button" class="btn btn-primary btn-startGame">Start Game</button>
+                    <button type="button" class="btn btn-primary btn-start-game">Start Game</button>
                 </div>
             </div>
         </div>
         <hr>
+         <!--Section 1 --> 
         <div class="col-sm-12">
             <div>
                 <h3>Heres your word</h3>
                 <p class="word-fillout"></p>
                 <!-- Underlines go here for word fillout -->
+
             </div>
         </div>
         <div class="col-sm-12 guess_number">
@@ -54,53 +58,14 @@
             <h3>Letters Guessed</h3>
             <p class="letters-guessed"></p>
         </div>
+        <div class="col-sm-12">
+            <h3>Wins / Losses</h3>
+            <p class="wins"></p>
+            <p class="losses"></p>
+        </div>
     </div>
 
-    <!-- first section with instructions on how to play -->
-
-    <!-- Second section where game info is kept such as
-            underscores indicating how long the word is and number of guesses/ wins -->
-    <script>
-        $(document).ready(function () {
-
-            var words = ["albedo", "Alpha Centauri", "apastron", "aperature", "aphelion", "apogee", "asterism", "asteroid", "astronaut", "astronomer"
-                , "astronomical unit", "astronomy", "axial tilt", "azimuth"]
-
-            // Game start button calls generate word function
-            $(".btn-startGame").on("click", function () {
-                $("p.word-fillout").empty()
-                $(".guesses").empty()
-                $(".letters-guessed").empty()
-                var guesses = 0
-                var word = words[Math.floor(Math.random() * words.length)];
-                // loop through and append a underscore for each letter
-                for (i = 0; i < word.length; i++) {
-                    $(".word-fillout").append("_").append(" ");
-                };
-
-                // checks user input against word that is loaded
-                document.onkeyup = function () {
-                    var guesses = [];
-                    
-                    if (word.indexOf(event.key) == -1) {
-                        $(".guesses").text(++guesses);
-                        alert(guesses);
-                        $(".letters-guessed").append(event.key).append(" ");
-                        guesses.push(String.fromCharCode(event.key));
-                        console.log(guesses);
-                    }
-                        else {
-                            alert("you guessed a correct letter!");
-                        };
-
-                    // for (var i = 0; i < word.length; i++) {
-                    //     console.log(word.charAt(i));
-                    // };
-                };
-            });
-        });
-
-    </script>
+    <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>
