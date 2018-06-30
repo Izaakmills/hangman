@@ -45,10 +45,14 @@
                 <!-- Underlines go here for word fillout -->
             </div>
         </div>
+        <div class="col-sm-12 guess_number">
+            <h3>You have</h3>
+            <div class="guesses"></div>
+            <h3>guesses remaining</h3>
+        </div>
         <div class="col-sm-12">
-            <h3>You have <div class="guesses"></div> remaining</h3>
-
-
+            <h3>Letters Guessed</h3>
+            <p class="letters-guessed"></p>
         </div>
     </div>
 
@@ -65,24 +69,35 @@
             // Game start button calls generate word function
             $(".btn-startGame").on("click", function () {
                 $("p.word-fillout").empty()
-                var word = words[Math.floor(Math.random()*words.length)];
+                $(".guesses").empty()
+                $(".letters-guessed").empty()
+                var guesses = 0
+                var word = words[Math.floor(Math.random() * words.length)];
                 // loop through and append a underscore for each letter
-                    for (i = 0; i < word.length; i++){
-                        $(".word-fillout").append("_").append(" ");
-                        console.log(i);
-                    };
+                for (i = 0; i < word.length; i++) {
+                    $(".word-fillout").append("_").append(" ");
+                };
+
+                // checks user input against word that is loaded
+                document.onkeyup = function () {
+                    var guesses = [];
+                    
+                    if (word.indexOf(event.key) == -1) {
+                        $(".guesses").text(++guesses);
+                        alert(guesses);
+                        $(".letters-guessed").append(event.key).append(" ");
+                        guesses.push(String.fromCharCode(event.key));
+                        console.log(guesses);
+                    }
+                        else {
+                            alert("you guessed a correct letter!");
+                        };
+
+                    // for (var i = 0; i < word.length; i++) {
+                    //     console.log(word.charAt(i));
+                    // };
+                };
             });
-                // var under_ = $("<div>");
-                // under_.addClass("letter");
-                // under_.text("_");
-                // $(".word-fillout").append(under_);
-
-                // _generateWord();
-
-            // function _generateWord() {
-            //     var word = words[i];
-            //         console.log(word);
-
         });
 
     </script>
