@@ -14,6 +14,7 @@
             // document.getElementsByClassName("guesses").empty();
             // document.getElementsByClassName("letters-guessed").empty();
             var guesses = 0;
+            var guessLimit = 10;
             var word = words[Math.floor(Math.random() * words.length)];
             word_arr = word.split(""); //array of new word
             haveWord = true;
@@ -26,22 +27,29 @@
         // checks user input against word that is loaded
         document.onkeyup = function () {
             if (haveWord){
+                var guess = event.key
                 var _guesses = [];
-                if (word.indexOf(event.key) == -1) {
+                var x = word.indexOf(event.key);
+                if (x == -1) {
                     document.getElementsByClassName("guesses")[0].textContent = (++guesses);
-                    // alert(guesses);
-                    document.getElementsByClassName("letters-guessed")[0].append(event.key).append(" ");
+                    document.getElementsByClassName("letters-guessed")[0].append(event.key);
+                    document.getElementsByClassName("letters-guessed")[0].append(" ");
                     _guesses.push(String.fromCharCode(event.key));
                     console.log(_guesses);
                     }
+                    // user guesses correct letter, 
+                    // replace letter in answerarray with guess
                         else {
+                            answerArray[x] = guess;
+                            document.getElementsByClassName("word-fillout")[0].textContent = answerArray;
+                            // console.log(answerArray.join(word_arr);
+                            
                             alert("you guessed a correct letter!");
                         };
+            // document.getElementsByClassName("word-answer")[0].textContent = (x);
+            
             };
-
-            // for (var i = 0; i < word.length; i++) {
-            //     console.log(word.charAt(i));
-            // };
         };
+        document.getElementsByClassName("word-answer")[0].textContent = (word);
     };
 
