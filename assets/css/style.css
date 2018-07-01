@@ -2,7 +2,7 @@ h1{
     text-align: center;
     color:black;
     font-family: 'Shrikhand', cursive;
-    font-weight: 800;
+    font-weight: 600;
 }
 body{
     text-align:center;
@@ -11,7 +11,7 @@ body{
     color:black;
 }
 .word-fillout{
-    font-size: 100px;
+    font-size: 50px;
 }
 
 
