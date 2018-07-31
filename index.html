@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>Hangman</title>
@@ -18,6 +19,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
+
 <body>
 
     <!-- header with name of game and some theme images / info -->
@@ -38,25 +40,27 @@
         </div>
         <hr>
         <!--Section 1 -->
-        <div class="col-sm-12">
-            <div>
-                <p class="word-fillout"></p>
-                <!-- Underlines go here for word fillout -->
-
+        <div class="row">
+            <div class="col-sm-12">
+                <div>
+                    <p class="word-fillout"></p>
+                    <!-- Underlines go here for word fillout -->
+                </div>
             </div>
-        </div>
-        <div class="col-sm-12 guess_number">
-            <p>You have <div class="guesses"></div>guesses remaining</p>
-        </div>
-        <div class="col-sm-12">
-            <h3>Letters Guessed</h3>
-            <p class="letters-guessed"></p>
-        </div>
-        <div class="col-sm-12">
-            <h3>Wins</h3>
-            <p class="wins"></p>
-            <h3>Losses</h3>
-            <p class="losses"></p>
+            <!-- scoreboard section -->
+            <div class="col-sm-12 guess_number">
+                <p>Remaining Guesses
+                    <div class="guesses"></div>
+                </p>
+            </div>
+            <div class="col-sm-12">
+                <h4>Letters Guessed</h4>
+                <p class="letters-guessed"></p>
+                <h4>Wins</h4>
+                <p class="wins"></p>
+                <h4>Losses</h4>
+                <p class="losses"></p>
+            </div>
         </div>
     </div>
 

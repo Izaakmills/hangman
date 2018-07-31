@@ -13,7 +13,7 @@ var guesses = 9;
 
 // activates game
 document.getElementsByClassName("btn-start")[0].onclick = function getWord() {
-    this.style.display = "hidden"
+    document.getElementsByClassName("btn-start")[0].display = "hidden"
 
     var word = words[Math.floor(Math.random() * words.length)];
     word_arr = word.split(""); //array of new word
@@ -32,7 +32,6 @@ document.getElementsByClassName("btn-start")[0].onclick = function getWord() {
     document.onkeyup = function () {
         var guess = event.key
         var x = word.indexOf(event.key);
-        console.log(guess)
 
         // if letter has not been guesses proceed, if it has ignore it
         if (guessArray.indexOf(guess) === -1){

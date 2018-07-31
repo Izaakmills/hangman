@@ -13,6 +13,9 @@ body{
 .word-fillout{
     font-size: 50px;
 }
+p{
+    display: inline;
+}
 
 
 
